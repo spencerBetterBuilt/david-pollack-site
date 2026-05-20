@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Blog — David Pollack on Faith, Football & Leadership"
+  description="Insights on leadership, faith, family, and making every day count. From David Pollack."
+  canonicalUrl="https://davidpollack.com/blog/"
+>
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-tag">Blog</div>
+        <h1 class="page-hero-title">THOUGHTS<br><span>FROM DAVID</span></h1>
+        <p class="page-hero-subtitle">Leadership, faith, football, and what it means to make every day count.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-coming-soon">
+        <div class="section-tag reveal">Coming Soon</div>
+        <h2 class="blog-soon-title reveal reveal-delay-1">CONTENT IS ON ITS WAY</h2>
+        <p class="blog-soon-desc reveal reveal-delay-2">
+          David's insights on leadership, faith, family, and football are coming to this page soon.
+          Subscribe below to be the first to know when new posts drop.
+        </p>
+        <a href="/contact/#newsletter" class="btn-primary reveal reveal-delay-3">
+          Stay in Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    background: var(--black);
+    padding: clamp(140px, 15vw, 180px) 0 clamp(80px, 8vw, 100px);
+    overflow: hidden;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(200,16,46,0.12) 0%, transparent 55%),
+      linear-gradient(135deg, var(--black) 0%, var(--charcoal) 100%);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .page-hero-title span { color: var(--red); }
+  .page-hero-subtitle {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    max-width: 500px;
+  }
+
+  .blog-section { padding: clamp(80px, 10vw, 120px) 0; }
+  .blog-coming-soon { max-width: 560px; }
+  .blog-soon-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .blog-soon-desc {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    color: #555;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+</style>

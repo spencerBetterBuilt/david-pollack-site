@@ -1,0 +1,636 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David Pollack",
+  "jobTitle": ["Keynote Speaker", "Author", "Event Emcee", "Former ESPN Analyst"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Georgia" },
+  "award": [
+    "College Football Hall of Fame",
+    "3x All-American",
+    "Lott Trophy",
+    "Bednarik Award",
+    "7-Time Emmy Award"
+  ],
+  "url": "https://davidpollack.com",
+  "sameAs": [
+    "https://www.instagram.com/davidpollack47/",
+    "https://www.facebook.com/davidpollack47/",
+    "https://x.com/davidpollack47",
+    "https://www.youtube.com/@DavidPollack47"
+  ]
+};
+
+const topics = [
+  {
+    num: "01",
+    title: "Every Day Counts",
+    desc: "The mindset and daily disciplines that drove him from walk-on to All-American. Built for teams that need to close the gap between where they are and where they want to be."
+  },
+  {
+    num: "02",
+    title: "Faith, Family, Football",
+    desc: "Priorities, purpose, and what happens when life forces you to redefine success. On the field and off it."
+  },
+  {
+    num: "03",
+    title: "Overcoming Adversity and Leadership",
+    desc: "From a career-ending injury to a national media career: the framework David used to turn the hardest season of his life into the foundation for everything that followed."
+  },
+  {
+    num: "04",
+    title: "Encouraged by Faith",
+    desc: "A faith-based keynote on finding hope, strength, and purpose through life's hardest seasons. Built for church events, faith-driven organizations, and retreats."
+  },
+];
+---
+
+<BaseLayout
+  title="David Pollack — Speaker, Author, Emcee"
+  description="Former UGA All-American and College Football Hall of Famer. Keynote speaker, author of Every Day Counts, and host of the See Ball Get Ball podcast."
+  schema={schema}
+>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-tag">Hall of Famer · ESPN Analyst · Author</div>
+        <h1 class="hero-title">
+          STILL<br>
+          COMPETING
+        </h1>
+        <p class="hero-subtitle">
+          Three-time All-American. Lott Trophy. Bednarik Award. College Football Hall of Famer.
+          12 years on ESPN. The career changed. The compete never did.
+        </p>
+        <div class="hero-actions">
+          <a href="/speaking/" class="btn-primary">
+            Book David
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/speaking/" class="btn-outline">Speaking Topics</a>
+        </div>
+      </div>
+      <div class="hero-image-col">
+        <div class="hero-image-frame">
+          <img
+            src="/images/david-pollack-headshot.webp"
+            alt="David Pollack — keynote speaker and author"
+            width="480"
+            height="640"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images reveal">
+          <div class="about-img-main">
+            <img
+              src="/images/david-pollack-speaking.jpg"
+              alt="David Pollack speaking on stage"
+              loading="lazy"
+              width="480"
+              height="600"
+            />
+          </div>
+          <div class="about-img-secondary">
+            <img
+              src="/images/david-pollack-headshot-2.webp"
+              alt="David Pollack portrait"
+              loading="lazy"
+              width="240"
+              height="240"
+            />
+          </div>
+        </div>
+        <div class="about-content">
+          <div class="section-tag reveal">About David</div>
+          <h2 class="about-title reveal reveal-delay-1">WALK-ON.<br>ALL-AMERICAN.<br>HALL OF FAMER.</h2>
+          <p class="about-text reveal reveal-delay-2">
+            Three-time All-American at Georgia. First-round NFL draft pick. College Football Hall of Famer. 12 years as a college football analyst on ESPN. The credentials are real. They're not the point.
+          </p>
+          <p class="about-text reveal reveal-delay-2">
+            A career-ending neck injury in his second NFL season forced the question every competitor eventually faces: what do you compete for when the competition is gone? David's answer is the same thing he tells every audience. Every day counts.
+          </p>
+          <a href="/meet-david/" class="btn-dark reveal reveal-delay-3" style="margin-top: 32px; display: inline-flex;">
+            Meet David
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING TOPICS PREVIEW -->
+  <section class="topics-section" id="topics">
+    <div class="container">
+      <div class="topics-intro">
+        <div class="section-tag reveal">Speaking</div>
+        <h2 class="topics-title reveal reveal-delay-1">SIGNATURE KEYNOTES</h2>
+      </div>
+      <div class="topics-list">
+        {topics.map((topic, i) => (
+          <div class={`topic-row reveal reveal-delay-${Math.min(i, 3)}`}>
+            <div class="topic-row-number">{topic.num}</div>
+            <div class="topic-row-content">
+              <h3>{topic.title}</h3>
+              <p>{topic.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="topics-cta reveal">
+        <a href="/speaking/" class="btn-primary">
+          Inquire About Booking
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK CTA -->
+  <section class="book-section" id="book">
+    <div class="container">
+      <div class="book-grid">
+        <div class="book-cover reveal">
+          <img
+            src="/images/every-day-counts-cover.jpg"
+            alt="Every Day Counts by David Pollack — book cover"
+            loading="lazy"
+            width="320"
+            height="480"
+          />
+        </div>
+        <div class="book-content">
+          <div class="section-tag reveal">New Book</div>
+          <h2 class="book-title reveal reveal-delay-1">EVERY DAY COUNTS</h2>
+          <p class="book-desc reveal reveal-delay-2">
+            Every Day Counts started as David's message on stage. Now it's a book. 30 chapters, 30 daily challenges, one idea: the gap between where you are and where you want to be closes one day at a time.
+          </p>
+          <div class="book-actions reveal reveal-delay-3">
+            <a href="/every-day-counts/" class="btn-primary">
+              Get the Book
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="book-secondary reveal reveal-delay-4">
+            <div class="section-tag" style="margin-top: 48px;">Children's Book</div>
+            <h3 class="book-secondary-title">THE WON'T QUIT KID</h3>
+            <p class="book-secondary-desc">A Brave Books story about confidence, effort, and never giving up. For the young competitor in every kid.</p>
+            <a href="https://bravebooks.us" target="_blank" rel="noopener noreferrer" class="btn-dark" style="margin-top: 16px; display: inline-flex;">
+              Get the Book
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section class="podcast-section" id="podcast">
+    <div class="container">
+      <div class="podcast-inner">
+        <div class="podcast-text">
+          <div class="section-tag">Subscribe Today</div>
+          <h2 class="podcast-title">SEE BALL. GET BALL.</h2>
+          <p class="podcast-subtitle">College football from someone who played it and broadcast it at the highest level.</p>
+          <div class="podcast-links">
+            <a href="https://www.youtube.com/@DavidPollack47" target="_blank" rel="noopener noreferrer" class="podcast-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+              YouTube
+            </a>
+            <a href="https://podcasts.apple.com/us/podcast/see-ball-get-ball/id1547117088" target="_blank" rel="noopener noreferrer" class="podcast-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+              Apple Podcasts
+            </a>
+            <a href="https://open.spotify.com/show/1t835E1wS2wOc9dp85EeJV" target="_blank" rel="noopener noreferrer" class="podcast-link">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path fill="white" d="M8 11.5c2.5-1 5.5-.5 7 1M8 14c2-0.8 4.5-.4 6 .8M9 9c3-1.2 6.5-.5 8.5 1.5"/></svg>
+              Spotify
+            </a>
+          </div>
+        </div>
+        <div class="podcast-embed">
+          <iframe
+            src="https://open.spotify.com/embed/show/1t835E1wS2wOc9dp85EeJV?utm_source=generator"
+            width="100%"
+            height="232"
+            style="border-radius:12px; border:0;"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="See Ball Get Ball podcast on Spotify"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="newsletter-inner">
+        <div class="newsletter-text">
+          <div class="section-tag">Stay in Touch</div>
+          <h2 class="newsletter-title">GET DAVID'S BEST IN YOUR INBOX</h2>
+          <p class="newsletter-desc">Leadership. Faith. Football. What David is thinking about this week, delivered to yours.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form" novalidate>
+          <div class="newsletter-fields">
+            <input type="text" name="firstName" placeholder="First name" autocomplete="given-name" />
+            <input type="email" name="email" placeholder="Your email address" required autocomplete="email" />
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </div>
+          <p class="newsletter-note">No spam. Unsubscribe anytime.</p>
+          <div class="form-hp" aria-hidden="true" tabindex="-1">
+            <label for="hp-website">Website</label>
+            <input type="text" id="hp-website" name="website" autocomplete="off" tabindex="-1" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(200,16,46,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(200,16,46,0.06) 0%, transparent 50%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: clamp(120px, 10vw, 140px) 24px clamp(60px, 6vw, 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-text { animation: slideInLeft 1s var(--ease-out) 0.2s both; }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 24px;
+  }
+  .hero-tag::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    line-height: 0.95;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .hero-image-col { position: relative; animation: slideInRight 1s var(--ease-out) 0.4s both; }
+  .hero-image-frame {
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--dark-gray);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .hero-image-frame img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-image-frame::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(10,10,10,0.8), transparent);
+    z-index: 1;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-section {
+    padding: clamp(80px, 10vw, 120px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-section::before {
+    content: 'DP';
+    font-family: var(--font-display);
+    font-size: 30vw;
+    color: rgba(0,0,0,0.02);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-images { position: relative; }
+  .about-img-main {
+    aspect-ratio: 4/5;
+    background: var(--light-gray);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+  .about-img-secondary {
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 55%; aspect-ratio: 1;
+    background: var(--dark-gray);
+    border-radius: 8px;
+    border: 4px solid var(--cream);
+    overflow: hidden;
+  }
+  .about-img-secondary img { width: 100%; height: 100%; object-fit: cover; }
+  .about-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    color: var(--black);
+    margin-bottom: 24px;
+  }
+  .about-text {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.8;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  /* ===== TOPICS ===== */
+  .topics-section {
+    background: var(--black);
+    padding: clamp(80px, 10vw, 120px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .topics-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(200,16,46,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(200,16,46,0.04) 0%, transparent 40%);
+  }
+  .topics-section .section-tag { color: var(--red); }
+  .topics-intro {
+    max-width: 600px;
+    margin-bottom: clamp(32px, 4vw, 48px);
+    position: relative;
+  }
+  .topics-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    color: var(--white);
+  }
+  .topics-list {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 48px;
+    position: relative;
+  }
+  .topic-row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: padding-left 0.3s var(--ease-out);
+  }
+  .topic-row:hover { padding-left: 8px; }
+  .topic-row-number {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: rgba(200,16,46,0.2);
+    line-height: 1;
+    padding-top: 4px;
+  }
+  .topic-row-content h3 {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2vw, 1.9rem);
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .topic-row-content p {
+    font-size: clamp(0.85rem, 0.95vw, 0.95rem);
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 600px;
+  }
+  .topics-cta { }
+
+  /* ===== BOOK ===== */
+  .book-section {
+    padding: clamp(80px, 10vw, 120px) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .book-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .book-cover {
+    width: clamp(200px, 22vw, 320px);
+    aspect-ratio: 2/3;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.2), -5px -5px 20px rgba(0,0,0,0.05);
+  }
+  .book-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .book-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+  .book-desc {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.8;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .book-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .book-secondary-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .book-secondary-desc {
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  /* ===== PODCAST ===== */
+  .podcast-section {
+    background: var(--charcoal);
+    padding: clamp(60px, 7vw, 80px) 0;
+  }
+  .podcast-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .podcast-text { flex-shrink: 0; max-width: 360px; }
+  .podcast-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .podcast-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+  .podcast-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .podcast-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+    padding: 12px 20px;
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .podcast-link:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+  .podcast-embed { flex: 1; min-width: 0; }
+
+  /* ===== NEWSLETTER ===== */
+  .newsletter-section {
+    background: var(--black);
+    padding: clamp(60px, 7vw, 80px) 0;
+  }
+  .newsletter-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .newsletter-text { max-width: 420px; }
+  .newsletter-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .newsletter-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+  }
+  .newsletter-form { flex: 1; min-width: 280px; }
+  .newsletter-fields {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .newsletter-fields input {
+    flex: 1;
+    min-width: 160px;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .newsletter-fields input::placeholder { color: rgba(255,255,255,0.3); }
+  .newsletter-fields input:focus { border-color: var(--red); }
+  .newsletter-note {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 10px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; padding-top: 120px; }
+    .hero-image-col { max-width: 400px; }
+    .about-grid { grid-template-columns: 1fr; gap: 60px; }
+    .about-img-secondary { right: -15px; }
+    .book-grid { grid-template-columns: 1fr; gap: 40px; justify-items: center; text-align: center; }
+    .book-desc { margin: 0 auto 32px; }
+    .book-secondary-desc { margin: 0 auto; }
+    .book-actions { justify-content: center; }
+    .topic-row { grid-template-columns: 56px 1fr; gap: 24px; }
+  }
+  @media (max-width: 768px) {
+    .podcast-inner { flex-direction: column; }
+    .podcast-text { max-width: 100%; text-align: center; }
+    .podcast-links { justify-content: center; }
+    .newsletter-inner { flex-direction: column; text-align: center; }
+    .newsletter-text { max-width: 100%; }
+    .newsletter-fields { flex-direction: column; }
+    .newsletter-fields input { min-width: 0; width: 100%; }
+    .newsletter-fields .btn-primary { width: 100%; justify-content: center; }
+    .topic-row { grid-template-columns: 48px 1fr; gap: 16px; padding: 28px 0; }
+    .topic-row-number { font-size: 2rem; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const loadTime = Date.now();
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    if (data.get('website')) return;
+    if (Date.now() - loadTime < 3000) return;
+
+    // TODO: wire to HubSpot Forms API
+    // POST to https://api.hsforms.com/submissions/v3/integration/submit/{portalId}/{formId}
+    console.log('Newsletter submit:', Object.fromEntries(data));
+  });
+</script>

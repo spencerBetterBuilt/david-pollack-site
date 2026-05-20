@@ -1,0 +1,332 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Every Day Counts",
+  "author": {
+    "@type": "Person",
+    "name": "David Pollack"
+  },
+  "url": "https://davidpollack.com/every-day-counts/",
+  "image": "https://davidpollack.com/images/every-day-counts-cover.jpg"
+};
+---
+
+<BaseLayout
+  title="Every Day Counts — David Pollack's New Book"
+  description="David Pollack's powerful new book is a call to live with intention, purpose, and relentless gratitude. Stop coasting. Start competing for the life you were made to live."
+  ogImage="/images/every-day-counts-og.jpg"
+  ogType="book"
+  canonicalUrl="https://davidpollack.com/every-day-counts/"
+  schema={schema}
+>
+  <!-- BOOK HERO -->
+  <section class="book-hero">
+    <div class="book-hero-bg"></div>
+    <div class="container">
+      <div class="book-hero-grid">
+        <div class="book-cover-wrap reveal">
+          <img
+            src="/images/every-day-counts-cover.jpg"
+            alt="Every Day Counts book cover — by David Pollack"
+            width="360"
+            height="540"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="book-hero-text">
+          <div class="section-tag">New Book</div>
+          <h1 class="book-hero-title">EVERY<br>DAY<br><span>COUNTS</span></h1>
+          <p class="book-hero-author">By David Pollack</p>
+          <p class="book-hero-desc reveal reveal-delay-1">
+            A powerful call to live with intention, purpose, and relentless gratitude for every opportunity.
+            Stop coasting. Start competing — for the life you were made to live.
+          </p>
+          <div class="book-hero-actions reveal reveal-delay-2">
+            <!-- Purchase links — to be added when confirmed by Rose -->
+            <a href="#" class="btn-primary">
+              Order Your Copy
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/speaking/#inquiry" class="btn-outline">
+              Book the Talk
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT THE BOOK -->
+  <section class="book-about">
+    <div class="container">
+      <div class="book-about-inner">
+        <div class="section-tag reveal">The Book</div>
+        <h2 class="book-about-title reveal reveal-delay-1">WHAT EVERY DAY COUNTS IS ABOUT</h2>
+        <div class="book-about-text">
+          <p class="reveal reveal-delay-2">
+            <!-- Book description — to be confirmed by Rose/David -->
+            In <em>Every Day Counts</em>, David Pollack draws on his remarkable journey — from walk-on hopeful to All-American legend, from career-ending injury to national television — to deliver a message that has resonated with audiences across the country.
+          </p>
+          <p class="reveal reveal-delay-2">
+            The book is a challenge and an invitation: to stop treating your days as ordinary, to show up fully, and to pursue the life God put you here to live. Each chapter is packed with honest reflection, practical discipline, and the kind of energy only David can bring.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 30-DAY CHALLENGE -->
+  <section class="challenge-section">
+    <div class="container">
+      <div class="challenge-inner">
+        <div class="challenge-text">
+          <div class="section-tag">The Challenge</div>
+          <h2 class="challenge-title reveal reveal-delay-1">THE 30-DAY<br>CHALLENGE</h2>
+          <p class="challenge-desc reveal reveal-delay-2">
+            Built into every copy of <em>Every Day Counts</em> is a 30-day challenge designed to help readers put the book's principles into practice — one intentional day at a time.
+          </p>
+          <p class="challenge-desc reveal reveal-delay-2">
+            Each day is a specific action, reflection, or discipline drawn from David's own playbook. Simple enough to do. Hard enough to matter.
+          </p>
+        </div>
+        <div class="challenge-visual reveal">
+          <div class="challenge-card">
+            <div class="challenge-number">30</div>
+            <div class="challenge-label">Days to build the habits that change everything.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE EXPERIENCE -->
+  <section class="live-section">
+    <div class="container">
+      <div class="section-tag reveal">Experience It Live</div>
+      <h2 class="live-title reveal reveal-delay-1">EXPERIENCE EVERY DAY COUNTS LIVE</h2>
+      <p class="live-desc reveal reveal-delay-2">
+        The book is great. The keynote is something else entirely. David brings <em>Every Day Counts</em> to life on stage with the energy, stories, and presence that only a live audience gets to experience. Invite David to speak at your next event.
+      </p>
+      <a href="/speaking/" class="btn-primary reveal reveal-delay-3">
+        Inquire About Booking
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CHILDREN'S BOOK -->
+  <section class="childrens-book-section">
+    <div class="container">
+      <div class="childrens-book-inner">
+        <div class="childrens-book-cover reveal">
+          <img
+            src="/images/wont-quit-kid-cover.webp"
+            alt="The Won't Quit Kid — children's book by David Pollack"
+            loading="lazy"
+            width="240"
+            height="320"
+          />
+        </div>
+        <div class="childrens-book-text">
+          <div class="section-tag reveal">Also from David</div>
+          <h2 class="childrens-book-title reveal reveal-delay-1">THE WON'T QUIT KID</h2>
+          <p class="childrens-book-desc reveal reveal-delay-2">
+            David partnered with Brave Books to tell a story about confidence, effort, and what it means to never give up — no matter how tough things get. Perfect for the young athlete in your life.
+          </p>
+          <a href="https://bravebooks.us" target="_blank" rel="noopener noreferrer" class="btn-dark reveal reveal-delay-3">
+            Get the Book →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .book-hero {
+    position: relative;
+    background: var(--black);
+    padding: clamp(140px, 15vw, 180px) 0 clamp(80px, 8vw, 100px);
+    overflow: hidden;
+  }
+  .book-hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 40%, rgba(200,16,46,0.12) 0%, transparent 55%),
+      linear-gradient(135deg, var(--black) 0%, var(--charcoal) 100%);
+  }
+  .book-hero-grid {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .book-cover-wrap {
+    width: clamp(200px, 22vw, 360px);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.5), -5px -5px 20px rgba(0,0,0,0.2);
+    animation: slideInLeft 1s var(--ease-out) 0.2s both;
+  }
+  .book-cover-wrap img { width: 100%; height: auto; display: block; }
+  .book-hero-text { animation: slideInRight 1s var(--ease-out) 0.3s both; }
+  .book-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .book-hero-title span { color: var(--red); }
+  .book-hero-author {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .book-hero-desc {
+    font-size: clamp(1rem, 1.15vw, 1.15rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .book-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .book-about {
+    padding: clamp(80px, 10vw, 120px) 0;
+  }
+  .book-about-inner { max-width: 760px; }
+  .book-about-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+  .book-about-text p {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.85;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .challenge-section {
+    background: var(--black);
+    padding: clamp(80px, 10vw, 120px) 0;
+    overflow: hidden;
+  }
+  .challenge-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+    align-items: center;
+  }
+  .challenge-section .section-tag { color: var(--red); }
+  .challenge-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .challenge-desc {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 16px;
+  }
+  .challenge-card {
+    background: rgba(200,16,46,0.1);
+    border: 1px solid rgba(200,16,46,0.2);
+    border-radius: 8px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 240px;
+  }
+  .challenge-number {
+    font-family: var(--font-display);
+    font-size: 8rem;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .challenge-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .live-section {
+    padding: clamp(80px, 10vw, 120px) 0;
+    text-align: center;
+  }
+  .live-section .section-tag { display: inline-flex; }
+  .live-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+  .live-desc {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    color: #555;
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 36px;
+  }
+
+  .childrens-book-section {
+    background: var(--cream);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding: clamp(80px, 10vw, 120px) 0;
+  }
+  .childrens-book-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .childrens-book-cover {
+    width: clamp(160px, 16vw, 240px);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 12px 12px 40px rgba(0,0,0,0.15);
+  }
+  .childrens-book-cover img { width: 100%; height: auto; }
+  .childrens-book-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .childrens-book-desc {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    color: #555;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 1024px) {
+    .book-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .challenge-inner { grid-template-columns: 1fr; }
+    .challenge-card { width: 100%; max-width: 280px; }
+    .childrens-book-inner { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>

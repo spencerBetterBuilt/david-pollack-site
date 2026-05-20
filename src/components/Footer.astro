@@ -1,0 +1,171 @@
+---
+import socialLinks from '../data/socialLinks.json';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-icon" aria-hidden="true">DP</span>
+          DAVID POLLACK
+        </div>
+        <p class="footer-tagline">Inspiring audiences and fueling success — on stage, on screen, and in every room he enters.</p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-nav-group">
+          <h5>Quick Links</h5>
+          <a href="/meet-david/">About David</a>
+          <a href="/speaking/">Speaking Topics</a>
+          <a href="/every-day-counts/">Every Day Counts</a>
+          <a href="/media/">Podcast & Media</a>
+          <a href="/speaking/">Book David</a>
+        </div>
+        <div class="footer-nav-group">
+          <h5>Connect</h5>
+          <a href="/blog/">Blog</a>
+          <a href="/contact/">Get in Touch</a>
+          <a href="mailto:speaking@davidpollack.com">speaking@davidpollack.com</a>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+        <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href={socialLinks.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.78a4.85 4.85 0 0 1-1.01-.09z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; {new Date().getFullYear()} David Pollack. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--black);
+    padding: 60px 0 32px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 32px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--white);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .footer-logo-icon {
+    width: 30px; height: 30px;
+    background: var(--red);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+  }
+  .footer-tagline {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    max-width: 280px;
+    line-height: 1.6;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 48px;
+  }
+  .footer-nav-group h5 {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+  .footer-nav-group a {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    padding: 4px 0;
+    transition: color 0.3s;
+  }
+  .footer-nav-group a:hover { color: var(--white); }
+
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .footer-social a {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    color: rgba(255,255,255,0.6);
+  }
+  .footer-social a:hover { background: var(--red); color: white; }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+  }
+  .footer-legal {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-legal a {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+    transition: color 0.3s;
+  }
+  .footer-legal a:hover { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 768px) {
+    .footer-top { flex-direction: column; gap: 32px; }
+    .footer-nav { flex-direction: column; gap: 24px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>

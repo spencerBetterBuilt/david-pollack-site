@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create *)",
+      "Skill(impeccable)",
+      "Skill(impeccable:*)",
+      "Bash(node /Users/spencerforeman/.claude/skills/impeccable/scripts/load-context.mjs)"
+    ]
+  }
+}

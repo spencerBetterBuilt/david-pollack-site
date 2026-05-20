@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "David Pollack",
+  "jobTitle": ["Keynote Speaker", "Author", "Event Emcee", "Former ESPN Analyst"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Georgia" },
+  "award": [
+    "College Football Hall of Fame",
+    "3x All-American",
+    "Lott Trophy",
+    "Bednarik Award",
+    "7-Time Emmy Award"
+  ],
+  "url": "https://davidpollack.com/meet-david/"
+};
+---
+
+<BaseLayout
+  title="Meet David Pollack — Hall of Famer, Speaker, Author"
+  description="From UGA All-American and first-round NFL Draft pick to ESPN analyst and College Football Hall of Famer — meet David Pollack."
+  canonicalUrl="https://davidpollack.com/meet-david/"
+  schema={schema}
+>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-grid" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-tag">About</div>
+        <h1 class="page-hero-title">MEET<br><span>DAVID POLLACK</span></h1>
+        <p class="page-hero-subtitle">Hall of Famer. ESPN Analyst. Speaker. Author. Husband. Father.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO CONTENT — placeholder, copy to be drafted and approved -->
+  <section class="bio-section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-image reveal">
+          <img
+            src="/images/david-pollack-about.jpg"
+            alt="David Pollack"
+            loading="lazy"
+            width="480"
+            height="600"
+          />
+        </div>
+        <div class="bio-content">
+          <p class="bio-text reveal">
+            <!-- Full bio copy — to be drafted and approved by Rose/David -->
+            David Pollack's story is one of relentless pursuit. Growing up in Georgia, football wasn't just a game — it was a calling. At the University of Georgia, he became one of the most decorated defenders in college football history: a three-time All-American, Lott Trophy winner, and Bednarik Award recipient. He was inducted into the College Football Hall of Fame in 2022.
+          </p>
+          <p class="bio-text reveal reveal-delay-1">
+            After being selected in the first round of the 2005 NFL Draft by the Cincinnati Bengals, David's professional career was cut short by a career-ending neck injury. Rather than retreat, he redirected — channeling that same competitive drive into a 12-year career at ESPN as one of college football's most recognized analysts, earning seven Emmy Awards along the way.
+          </p>
+          <p class="bio-text reveal reveal-delay-1">
+            Today, David is a sought-after keynote speaker, event emcee, and author. His message — that every single day is an opportunity to compete, grow, and give back — resonates with audiences across corporate, faith-based, and sports communities. He is also the author of <em>Every Day Counts</em> and the Brave Books children's title <em>The Won't Quit Kid</em>.
+          </p>
+          <p class="bio-text reveal reveal-delay-2">
+            Away from the stage, David's priorities are clear: faith, family, and making every day count. He and his wife live in Georgia, where he stays connected to the community that shaped him.
+          </p>
+        </div>
+      </div>
+
+      <!-- Career Highlights -->
+      <div class="highlights-section">
+        <div class="section-tag reveal">Career Highlights</div>
+        <h2 class="highlights-title reveal reveal-delay-1">BY THE NUMBERS</h2>
+        <div class="highlights-grid">
+          {[
+            { stat: "3x", label: "All-American at UGA" },
+            { stat: "2022", label: "College Football Hall of Fame" },
+            { stat: "7x", label: "Emmy Award Winner" },
+            { stat: "12", label: "Years at ESPN" },
+            { stat: "500+", label: "Speaking Events" },
+            { stat: "2", label: "Books Published" },
+          ].map((item, i) => (
+            <div class={`highlight-item reveal reveal-delay-${Math.min(i, 4)}`}>
+              <div class="highlight-stat">{item.stat}</div>
+              <div class="highlight-label">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING CTA -->
+  <section class="speaking-cta-section">
+    <div class="container">
+      <div class="speaking-cta-inner">
+        <div>
+          <div class="section-tag">Book David</div>
+          <h2 class="speaking-cta-title">BRING DAVID TO YOUR NEXT EVENT</h2>
+          <p class="speaking-cta-desc">David's energy, story, and message connect with every room. Find out what a keynote from David looks like for your audience.</p>
+        </div>
+        <a href="/speaking/" class="btn-primary">
+          View Speaking Topics
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    background: var(--black);
+    padding: clamp(140px, 15vw, 180px) 0 clamp(60px, 6vw, 80px);
+    overflow: hidden;
+  }
+  .page-hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(200,16,46,0.12) 0%, transparent 55%),
+      linear-gradient(135deg, var(--black) 0%, var(--charcoal) 100%);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .page-hero-content { position: relative; z-index: 2; }
+  .page-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .page-hero-title span { color: var(--red); }
+  .page-hero-subtitle {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 500px;
+  }
+
+  .bio-section { padding: clamp(80px, 10vw, 120px) 0; }
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: clamp(60px, 8vw, 100px);
+  }
+  .bio-image { border-radius: 8px; overflow: hidden; }
+  .bio-image img { width: 100%; height: auto; object-fit: cover; border-radius: 8px; }
+  .bio-text {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    line-height: 1.85;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .highlights-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+  }
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .highlight-item {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+  .highlight-stat {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .highlight-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--mid-gray);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .speaking-cta-section {
+    background: var(--black);
+    padding: clamp(60px, 7vw, 80px) 0;
+  }
+  .speaking-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .speaking-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .speaking-cta-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 1024px) {
+    .bio-grid { grid-template-columns: 1fr; gap: 40px; }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .highlights-grid { grid-template-columns: 1fr 1fr; }
+    .speaking-cta-inner { flex-direction: column; text-align: center; }
+  }
+</style>

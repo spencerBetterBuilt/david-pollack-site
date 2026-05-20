@@ -1,0 +1,21 @@
+# Page redirects — preserve old WordPress URLs
+/meet-david/                                                    /meet-david/          301
+/every-day-counts/                                              /every-day-counts/    301
+/david-pollack-speaking/                                        /speaking/            301
+/media/                                                         /media/               301
+/news-2/                                                        /blog/                301
+/news/                                                          /blog/                301
+/get-in-touch/                                                  /contact/             301
+
+# Demo/junk page cleanup
+/services/                                                      /                     301
+/example-of-service-details-page/                               /                     301
+/home-business-consultant/                                      /                     301
+
+# Security cleanup
+/author/admin/                                                  /                     301
+/wp-json/*                                                      /                     301
+/wp-admin/*                                                     /                     301
+
+# Lorem ipsum slug fix
+/ut-enim-ad-minima-veniam-ullam-corporis-suscipit-laboriosam/  /blog/faith-through-trials/  301

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Pollack — Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #C8102E;
+  --red-dark: #A00D24;
+  --red-glow: #E8152F;
+  --black: #0A0A0A;
+  --charcoal: #1A1A1A;
+  --dark-gray: #2A2A2A;
+  --mid-gray: #888;
+  --light-gray: #E8E8E8;
+  --off-white: #F5F3F0;
+  --cream: #FAF8F5;
+  --white: #FFFFFF;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+
+/* ===== DS NAV ===== */
+.ds-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--black);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ds-nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+}
+.ds-nav-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--white);
+  letter-spacing: 2px;
+  display: flex; align-items: center; gap: 10px;
+  flex-shrink: 0;
+}
+.ds-nav-icon {
+  width: 32px; height: 32px;
+  background: var(--red);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700; color: white;
+}
+.ds-nav-links {
+  display: flex; gap: 4px; flex-wrap: wrap;
+}
+.ds-nav-links a {
+  text-decoration: none;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.ds-nav-links a:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ===== LAYOUT ===== */
+.ds-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.ds-section {
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.ds-section.dark {
+  background: var(--black);
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+.ds-section-header {
+  margin-bottom: 48px;
+}
+.ds-section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 12px;
+}
+.ds-section-tag::before {
+  content: ''; width: 20px; height: 2px; background: var(--red);
+}
+.ds-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.ds-section-title.light { color: var(--white); }
+.ds-section-desc {
+  font-size: 1rem; font-weight: 300;
+  color: #555; line-height: 1.7;
+  margin-top: 12px; max-width: 600px;
+}
+.ds-section-desc.light { color: rgba(255,255,255,0.5); }
+
+/* ===== HERO INTRO ===== */
+.ds-hero {
+  background: var(--black);
+  position: relative; overflow: hidden;
+  padding: 100px 0 80px;
+}
+.ds-hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(200,16,46,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 80%, rgba(200,16,46,0.08) 0%, transparent 50%),
+    linear-gradient(135deg, var(--black) 0%, var(--charcoal) 50%, var(--black) 100%);
+}
+.ds-hero-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.ds-hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+}
+.ds-hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 24px;
+}
+.ds-hero-tag::before {
+  content: ''; width: 24px; height: 2px; background: var(--red);
+}
+.ds-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+.ds-hero h1 span { color: var(--red); }
+.ds-hero p {
+  font-size: 1.1rem; font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7; max-width: 520px;
+}
+
+/* ===== COLOR GRID ===== */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+.color-swatch {
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.color-swatch-block {
+  height: 80px;
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  padding: 10px 12px;
+}
+.color-swatch-block span {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.25);
+  color: white;
+}
+.color-swatch-info {
+  padding: 12px;
+  background: var(--white);
+}
+.color-swatch-name {
+  font-size: 0.8rem; font-weight: 600;
+  color: var(--black); margin-bottom: 2px;
+}
+.color-swatch-var {
+  font-size: 0.7rem; color: var(--mid-gray);
+  font-family: monospace;
+}
+
+/* ===== TYPE SPECIMENS ===== */
+.type-specimen {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.type-specimen:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.type-specimen-label {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: var(--mid-gray);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.type-specimen-label span {
+  font-size: 0.6rem;
+  font-family: monospace;
+  color: var(--red);
+  background: rgba(200,16,46,0.06);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.type-hero {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  line-height: 0.95; letter-spacing: 2px;
+}
+.type-section {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  line-height: 1; letter-spacing: 1px;
+}
+.type-card-heading {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+.type-body {
+  font-size: 1.05rem; font-weight: 300;
+  line-height: 1.8; color: #555;
+  max-width: 65ch;
+}
+.type-small {
+  font-size: 0.9rem; font-weight: 300;
+  line-height: 1.7; color: #555;
+}
+.type-nav {
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--mid-gray);
+}
+.type-button-text {
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.type-label {
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--dark-gray);
+}
+
+/* ===== DARK TYPE ===== */
+.type-dark-block {
+  background: var(--black);
+  border-radius: 8px;
+  padding: 40px;
+  margin-top: 32px;
+}
+.type-dark-block .type-hero { color: var(--white); }
+.type-dark-block .type-hero span { color: var(--red); }
+.type-dark-block .type-body { color: rgba(255,255,255,0.6); }
+.type-dark-block .type-small { color: rgba(255,255,255,0.45); }
+
+/* ===== BUTTONS ===== */
+.btn-row {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--red); color: var(--white);
+  padding: 16px 36px;
+  font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 4px; border: none; cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,16,46,0.4);
+}
+.btn-primary:hover::before { opacity: 1; }
+
+.btn-dark {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--black); color: var(--white);
+  padding: 16px 36px;
+  font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 4px; border: none; cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+.btn-dark:hover {
+  background: var(--charcoal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.dark-bg-btns {
+  background: var(--black);
+  border-radius: 8px;
+  padding: 40px;
+  margin-bottom: 32px;
+}
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: var(--white); background: transparent;
+  padding: 16px 36px;
+  font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 4px; cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+.btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.05);
+}
+
+.btn-nav-cta {
+  background: var(--red); color: var(--white);
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 4px; border: none; cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+.btn-nav-cta:hover {
+  background: var(--red-glow);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(200,16,46,0.4);
+}
+
+/* ===== SECTION TAG COMPONENT ===== */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); margin-bottom: 16px;
+}
+.section-tag::before {
+  content: ''; width: 20px; height: 2px; background: var(--red);
+}
+
+/* ===== CARDS ===== */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.topic-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  padding: 40px 32px;
+  position: relative; overflow: hidden;
+  transition: all 0.4s var(--ease-out);
+}
+.topic-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.topic-card:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(200,16,46,0.2);
+  transform: translateY(-4px);
+}
+.topic-card:hover::before { transform: scaleX(1); }
+.topic-number {
+  font-family: var(--font-display);
+  font-size: 3rem; color: rgba(200,16,46,0.15);
+  line-height: 1; margin-bottom: 16px;
+}
+.topic-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem; color: var(--white);
+  letter-spacing: 1px; margin-bottom: 12px;
+}
+.topic-card p {
+  font-size: 0.9rem; color: rgba(255,255,255,0.45);
+  line-height: 1.7; font-weight: 300;
+}
+
+.highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.highlight-card {
+  padding: 20px;
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.highlight-card h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem; letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.highlight-card p {
+  font-size: 0.82rem; color: var(--mid-gray); line-height: 1.5;
+}
+
+/* ===== FORMS ===== */
+.form-demo {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  max-width: 560px;
+}
+.form-demo-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem; letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.form-demo-subtitle {
+  font-size: 0.9rem; color: var(--mid-gray);
+  margin-bottom: 32px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--dark-gray); margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%; padding: 14px 16px;
+  font-family: var(--font-body); font-size: 0.95rem;
+  border: 1px solid #DDD; border-radius: 6px;
+  background: var(--cream); color: var(--black);
+  transition: all 0.3s; outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(200,16,46,0.08);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group select { cursor: pointer; }
+.form-submit {
+  width: 100%; padding: 16px;
+  background: var(--red); color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  border: none; border-radius: 6px; cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+}
+.form-submit:hover {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(200,16,46,0.3);
+}
+
+/* ===== TICKER DEMO ===== */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-demo {
+  background: var(--red);
+  padding: 14px 0;
+  overflow: hidden;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 20s linear infinite;
+}
+.ticker-item {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  color: var(--white);
+  padding: 0 40px;
+  display: flex; align-items: center; gap: 40px;
+}
+.ticker-item::after {
+  content: '\2605';
+  font-size: 0.5rem; opacity: 0.6;
+}
+
+/* ===== NAV DEMO ===== */
+.nav-demo {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-demo-logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem; color: var(--white);
+  letter-spacing: 2px;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-demo-icon {
+  width: 32px; height: 32px;
+  background: var(--red); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; font-weight: 700; color: white;
+}
+.nav-demo-links {
+  display: flex; align-items: center; gap: 28px;
+}
+.nav-demo-links a {
+  text-decoration: none;
+  font-size: 0.82rem; font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-demo-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--red);
+  transition: width 0.3s var(--ease-out);
+}
+.nav-demo-links a:hover { color: var(--white); }
+.nav-demo-links a:hover::after { width: 100%; }
+
+/* ===== FOOTER DEMO ===== */
+.footer-demo {
+  background: var(--black);
+  border-radius: 8px;
+  padding: 40px;
+}
+.footer-demo-top {
+  display: flex; justify-content: space-between;
+  align-items: start;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 24px; gap: 32px;
+}
+.footer-demo-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem; color: var(--white);
+  letter-spacing: 2px;
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px;
+}
+.footer-demo-tagline {
+  font-size: 0.82rem; color: rgba(255,255,255,0.35);
+  font-weight: 300; max-width: 240px; line-height: 1.6;
+}
+.footer-demo-nav h5 {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 12px;
+}
+.footer-demo-nav a {
+  display: block; text-decoration: none;
+  font-size: 0.82rem; color: rgba(255,255,255,0.55);
+  padding: 3px 0; transition: color 0.3s;
+}
+.footer-demo-nav a:hover { color: var(--white); }
+.footer-demo-social {
+  display: flex; gap: 8px;
+}
+.footer-demo-social a {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; text-decoration: none;
+}
+.footer-demo-social a:hover { background: var(--red); }
+.footer-demo-social svg { width: 14px; height: 14px; color: rgba(255,255,255,0.6); }
+.footer-demo-social a:hover svg { color: white; }
+.footer-demo-bottom {
+  display: flex; justify-content: space-between;
+  font-size: 0.72rem; color: rgba(255,255,255,0.25);
+}
+
+/* ===== SPACING DEMO ===== */
+.spacing-demo {
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.spacing-block {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.spacing-visual {
+  background: var(--red);
+  opacity: 0.15;
+  border-radius: 4px;
+  width: 48px;
+}
+.spacing-label {
+  font-size: 0.65rem; font-weight: 600;
+  color: var(--mid-gray); text-align: center;
+  font-family: monospace;
+}
+
+/* ===== RADIUS DEMO ===== */
+.radius-demo {
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.radius-block {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.radius-visual {
+  width: 72px; height: 72px;
+  background: var(--white);
+  border: 2px solid var(--red);
+}
+.radius-label {
+  font-size: 0.65rem; font-weight: 600;
+  color: var(--mid-gray); text-align: center;
+}
+.radius-use {
+  font-size: 0.6rem; color: var(--mid-gray);
+  text-align: center; font-family: monospace;
+}
+
+/* ===== SHADOW DEMO ===== */
+.shadow-demo {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+.shadow-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+.shadow-card-label {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--mid-gray); margin-top: 8px;
+}
+
+/* ===== EASING DEMO ===== */
+.ease-demo {
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.ease-block {
+  flex: 1; min-width: 200px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+.ease-label {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  color: var(--mid-gray); margin-bottom: 4px;
+}
+.ease-value {
+  font-size: 0.6rem; font-family: monospace;
+  color: var(--red);
+}
+.ease-bar-track {
+  height: 6px; background: rgba(0,0,0,0.04);
+  border-radius: 3px; margin-top: 16px;
+  position: relative; overflow: hidden;
+}
+.ease-bar {
+  position: absolute; left: 0; top: 0;
+  height: 100%; width: 0;
+  background: var(--red);
+  border-radius: 3px;
+}
+.ease-block:hover .ease-bar { width: 100%; }
+.ease-bar.out { transition: width 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.ease-bar.in-out { transition: width 1s cubic-bezier(0.65, 0, 0.35, 1); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .ds-nav-links { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
+  .highlight-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .color-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .nav-demo-links { display: none; }
+  .footer-demo-top { flex-direction: column; }
+  .form-demo { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== DS NAV ===== -->
+<nav class="ds-nav">
+  <div class="ds-nav-inner">
+    <div class="ds-nav-title">
+      <div class="ds-nav-icon">DP</div>
+      DESIGN SYSTEM
+    </div>
+    <div class="ds-nav-links">
+      <a href="#colors">Colors</a>
+      <a href="#typography">Type</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#cards">Cards</a>
+      <a href="#forms">Forms</a>
+      <a href="#components">Components</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#responsive">Responsive</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="ds-hero">
+  <div class="ds-hero-bg"></div>
+  <div class="ds-hero-grid-overlay"></div>
+  <div class="ds-hero-content">
+    <div class="ds-hero-tag">Design System v1.0</div>
+    <h1>DAVID<br>POLLACK<br><span>DESIGN</span><br>SYSTEM</h1>
+    <p>The canonical visual reference for davidpollack.com — every color, font, component, and pattern codified from the approved mockup. This is the source of truth.</p>
+  </div>
+</section>
+
+<!-- ===== COLORS ===== -->
+<section class="ds-section" id="colors">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Palette</div>
+      <h2 class="ds-section-title">COLOR TOKENS</h2>
+      <p class="ds-section-desc">Red is the only accent. Everything else is neutral. The palette alternates between warm light sections (cream) and dramatic dark sections (near-black).</p>
+    </div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#C8102E;"><span>#C8102E</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Red (Primary)</div><div class="color-swatch-var">--red</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#A00D24;"><span>#A00D24</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Red Dark</div><div class="color-swatch-var">--red-dark</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#E8152F;"><span>#E8152F</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Red Glow</div><div class="color-swatch-var">--red-glow</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#0A0A0A;"><span>#0A0A0A</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Black</div><div class="color-swatch-var">--black</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#1A1A1A;"><span>#1A1A1A</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Charcoal</div><div class="color-swatch-var">--charcoal</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#2A2A2A;"><span>#2A2A2A</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Dark Gray</div><div class="color-swatch-var">--dark-gray</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#888;"><span>#888888</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Mid Gray</div><div class="color-swatch-var">--mid-gray</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#E8E8E8;"><span style="background:rgba(0,0,0,0.15);color:#333;">#E8E8E8</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Light Gray</div><div class="color-swatch-var">--light-gray</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#F5F3F0;"><span style="background:rgba(0,0,0,0.12);color:#333;">#F5F3F0</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Off White</div><div class="color-swatch-var">--off-white</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#FAF8F5; border:1px solid #eee;"><span style="background:rgba(0,0,0,0.1);color:#333;">#FAF8F5</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Cream (Page BG)</div><div class="color-swatch-var">--cream</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background:#FFF; border:1px solid #eee;"><span style="background:rgba(0,0,0,0.08);color:#333;">#FFFFFF</span></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">White (Cards)</div><div class="color-swatch-var">--white</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TYPOGRAPHY ===== -->
+<section class="ds-section" id="typography">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Typography</div>
+      <h2 class="ds-section-title">TYPE SYSTEM</h2>
+      <p class="ds-section-desc">Two fonts. Bebas Neue for all display/headlines. Outfit for everything else. No exceptions.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Hero H1 <span>Bebas Neue · clamp(3.5rem, 7vw, 6.5rem) · tracking 2px</span></div>
+      <div class="type-hero">INSPIRING AUDIENCES<br>FUELING SUCCESS</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Section H2 <span>Bebas Neue · clamp(2.5rem, 4vw, 3.8rem) · tracking 1px</span></div>
+      <div class="type-section">DRIVEN BY PASSION,<br>INSPIRED BY ACTION</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Card H3 <span>Bebas Neue · 1.5rem · tracking 1px</span></div>
+      <div class="type-card-heading">EVERY DAY COUNTS</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Section Tag <span>Outfit · 0.7rem · 600 · tracking 3px · uppercase</span></div>
+      <div class="section-tag">About David</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Body <span>Outfit · 1.05rem · 300 · line-height 1.8</span></div>
+      <div class="type-body">Two-time All-American at the University of Georgia. First-round NFL Draft pick. ESPN college football analyst. These accolades only scratch the surface of who David Pollack is. After a career-ending neck injury, David didn't retreat — he redirected.</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Body Small <span>Outfit · 0.9rem · 300 · line-height 1.7</span></div>
+      <div class="type-small">Every presentation is tailored to your audience, but these themes resonate across industries and stages.</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Nav Links <span>Outfit · 0.85rem · 500 · tracking 1.5px · uppercase</span></div>
+      <div class="type-nav">ABOUT&nbsp;&nbsp;&nbsp;&nbsp;SPEAKING&nbsp;&nbsp;&nbsp;&nbsp;BOOK&nbsp;&nbsp;&nbsp;&nbsp;PODCAST&nbsp;&nbsp;&nbsp;&nbsp;CONTACT</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Button Text <span>Outfit · 0.85rem · 600 · tracking 2px · uppercase</span></div>
+      <div class="type-button-text">BOOK DAVID →</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-specimen-label">Form Label <span>Outfit · 0.75rem · 600 · tracking 1px · uppercase</span></div>
+      <div class="type-label">EVENT TYPE</div>
+    </div>
+
+    <div class="type-dark-block">
+      <div class="type-specimen-label" style="color:rgba(255,255,255,0.3);">On Dark Backgrounds</div>
+      <div class="type-hero" style="margin-bottom:20px;">POPULAR<br><span>SPEAKING</span> TOPICS</div>
+      <div class="type-body" style="margin-bottom:12px;">Every presentation is tailored to your audience, but these themes resonate across industries and stages.</div>
+      <div class="type-small">David brings energy, authenticity, and purpose to every stage he steps on.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BUTTONS ===== -->
+<section class="ds-section" id="buttons">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Interactive</div>
+      <h2 class="ds-section-title">BUTTONS</h2>
+      <p class="ds-section-desc">Sharp 4px radius. Never rounded pills. All uppercase with letter-spacing. Three variants depending on background context.</p>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div class="type-specimen-label" style="margin-bottom:12px;">On Light Backgrounds</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-primary">Book David <span>→</span></button>
+      <button class="btn-dark">Get the Book <span>→</span></button>
+      <button class="btn-nav-cta">Book David</button>
+    </div>
+
+    <div class="dark-bg-btns">
+      <div class="type-specimen-label" style="color:rgba(255,255,255,0.3); margin-bottom:16px;">On Dark Backgrounds</div>
+      <div class="btn-row" style="margin-bottom:0;">
+        <button class="btn-primary">Book David <span>→</span></button>
+        <button class="btn-outline">Speaking Topics</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CARDS ===== -->
+<section class="ds-section dark" id="cards">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Containers</div>
+      <h2 class="ds-section-title light">CARD PATTERNS</h2>
+      <p class="ds-section-desc light">Two card styles. Dark cards for speaking topics (subtle glass on black). Light cards for highlights and info (white on cream). Hover to see interactions.</p>
+    </div>
+
+    <div class="type-specimen-label" style="color:rgba(255,255,255,0.3); margin-bottom:16px;">Topic Cards (Dark Sections)</div>
+    <div class="card-grid" style="margin-bottom:48px;">
+      <div class="topic-card">
+        <div class="topic-number">01</div>
+        <h3>EVERY DAY COUNTS</h3>
+        <p>David shares the mindset and daily disciplines that drove him from walk-on hopeful to All-American — and how your team can adopt the same relentless approach.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">02</div>
+        <h3>FAITH, FAMILY, FOOTBALL</h3>
+        <p>A talk about priorities, purpose, and what happens when life forces you to redefine success on and off the field.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">03</div>
+        <h3>OVERCOMING ADVERSITY</h3>
+        <p>From a career-ending injury to building a media career and national brand, David shares the framework for turning setbacks into comebacks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="type-specimen-label" style="margin-bottom:16px;">Highlight Cards (Light Sections)</div>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <h4>CORPORATE & KEYNOTE</h4>
+        <p>Fortune 500 to startups — energy that moves the room.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>SPORTS & ENTERTAINMENT</h4>
+        <p>Emcee work for galas, golf tournaments, and more.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>FAITH & COMMUNITY</h4>
+        <p>Sharing a message of purpose, resilience, and hope.</p>
+      </div>
+      <div class="highlight-card">
+        <h4>AUTHOR</h4>
+        <p>"The Won't Quit Kid" — teaching kids to never give up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMS ===== -->
+<section class="ds-section" id="forms">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Inputs</div>
+      <h2 class="ds-section-title">FORM SYSTEM</h2>
+      <p class="ds-section-desc">Cream inputs on white card. Red focus states. Labels above, always uppercase. Click into the fields to see focus styling.</p>
+    </div>
+
+    <div class="form-demo">
+      <h3 class="form-demo-title">BOOK DAVID FOR YOUR EVENT</h3>
+      <p class="form-demo-subtitle">Fill out the details below and we'll get back to you.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First name">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@company.com">
+      </div>
+      <div class="form-group">
+        <label>Event Type</label>
+        <select>
+          <option disabled selected>Select event type</option>
+          <option>Corporate Keynote</option>
+          <option>Conference / Convention</option>
+          <option>Faith-Based Event</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about your event — date, location, audience size..."></textarea>
+      </div>
+      <button class="form-submit">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPONENTS ===== -->
+<section class="ds-section" id="components">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Components</div>
+      <h2 class="ds-section-title">KEY COMPONENTS</h2>
+      <p class="ds-section-desc">Navigation, ticker bar, footer — the structural pieces that appear on every page.</p>
+    </div>
+
+    <div class="type-specimen-label" style="margin-bottom:12px;">Navigation (Scrolled State)</div>
+    <div class="nav-demo" style="margin-bottom:40px;">
+      <div class="nav-demo-logo">
+        <div class="nav-demo-icon">DP</div>
+        DAVID POLLACK
+      </div>
+      <div class="nav-demo-links">
+        <a href="#">About</a>
+        <a href="#">Speaking</a>
+        <a href="#">Book</a>
+        <a href="#">Podcast</a>
+        <a href="#">Contact</a>
+      </div>
+      <button class="btn-nav-cta">Book David</button>
+    </div>
+
+    <div class="type-specimen-label" style="margin-bottom:12px;">Ticker Bar</div>
+    <div class="ticker-demo" style="margin-bottom:40px;">
+      <div class="ticker-track">
+        <div class="ticker-item">KEYNOTE SPEAKER</div>
+        <div class="ticker-item">EVENT EMCEE</div>
+        <div class="ticker-item">ESPN ANALYST</div>
+        <div class="ticker-item">UGA LEGEND</div>
+        <div class="ticker-item">NFL VETERAN</div>
+        <div class="ticker-item">AUTHOR</div>
+        <div class="ticker-item">FAITH & FAMILY</div>
+        <div class="ticker-item">EVERY DAY COUNTS</div>
+        <div class="ticker-item">KEYNOTE SPEAKER</div>
+        <div class="ticker-item">EVENT EMCEE</div>
+        <div class="ticker-item">ESPN ANALYST</div>
+        <div class="ticker-item">UGA LEGEND</div>
+        <div class="ticker-item">NFL VETERAN</div>
+        <div class="ticker-item">AUTHOR</div>
+        <div class="ticker-item">FAITH & FAMILY</div>
+        <div class="ticker-item">EVERY DAY COUNTS</div>
+      </div>
+    </div>
+
+    <div class="type-specimen-label" style="margin-bottom:12px;">Footer</div>
+    <div class="footer-demo">
+      <div class="footer-demo-top">
+        <div>
+          <div class="footer-demo-logo">
+            <div class="nav-demo-icon" style="width:28px;height:28px;font-size:0.7rem;">DP</div>
+            DAVID POLLACK
+          </div>
+          <div class="footer-demo-tagline">Inspiring audiences and fueling success — on stage, on screen, and in every room he enters.</div>
+        </div>
+        <div class="footer-demo-nav">
+          <h5>Quick Links</h5>
+          <a href="#">About David</a>
+          <a href="#">Speaking Topics</a>
+          <a href="#">Every Day Counts</a>
+          <a href="#">Podcast</a>
+          <a href="#">Book David</a>
+        </div>
+        <div class="footer-demo-nav">
+          <h5>Connect</h5>
+          <a href="#">Media Kit</a>
+          <a href="#">Get in Touch</a>
+        </div>
+        <div class="footer-demo-social">
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.6C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-demo-bottom">
+        <span>&copy; 2026 David Pollack. All rights reserved.</span>
+        <span>Privacy Policy&nbsp;&nbsp;&nbsp;Terms</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SPACING & RADIUS ===== -->
+<section class="ds-section" id="spacing">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Structure</div>
+      <h2 class="ds-section-title">SPACING & RADIUS</h2>
+    </div>
+
+    <div class="type-specimen-label" style="margin-bottom:16px;">Border Radius Scale</div>
+    <div class="radius-demo" style="margin-bottom:48px;">
+      <div class="radius-block">
+        <div class="radius-visual" style="border-radius:4px;"></div>
+        <div class="radius-label">4px</div>
+        <div class="radius-use">Buttons</div>
+      </div>
+      <div class="radius-block">
+        <div class="radius-visual" style="border-radius:6px;"></div>
+        <div class="radius-label">6px</div>
+        <div class="radius-use">Inputs, Icons</div>
+      </div>
+      <div class="radius-block">
+        <div class="radius-visual" style="border-radius:8px;"></div>
+        <div class="radius-label">8px</div>
+        <div class="radius-use">Cards, Images</div>
+      </div>
+      <div class="radius-block">
+        <div class="radius-visual" style="border-radius:12px;"></div>
+        <div class="radius-label">12px</div>
+        <div class="radius-use">Form Card (max)</div>
+      </div>
+    </div>
+
+    <div class="type-specimen-label" style="margin-bottom:16px;">Shadow Scale</div>
+    <div class="shadow-demo" style="margin-bottom:48px;">
+      <div class="shadow-card" style="box-shadow: 0 4px 40px rgba(0,0,0,0.06);">
+        <div class="shadow-card-label">Form Card</div>
+      </div>
+      <div class="shadow-card" style="box-shadow: 0 8px 30px rgba(200,16,46,0.4);">
+        <div class="shadow-card-label">Red Btn Hover</div>
+      </div>
+      <div class="shadow-card" style="box-shadow: 0 8px 30px rgba(0,0,0,0.2);">
+        <div class="shadow-card-label">Dark Btn Hover</div>
+      </div>
+      <div class="shadow-card" style="box-shadow: 0 4px 30px rgba(0,0,0,0.3);">
+        <div class="shadow-card-label">Nav Scrolled</div>
+      </div>
+      <div class="shadow-card" style="box-shadow: 20px 20px 60px rgba(0,0,0,0.2), -5px -5px 20px rgba(0,0,0,0.05);">
+        <div class="shadow-card-label">Book Cover</div>
+      </div>
+    </div>
+
+    <div class="type-specimen-label" style="margin-bottom:16px;">Motion Curves (hover to preview)</div>
+    <div class="ease-demo">
+      <div class="ease-block">
+        <div class="ease-label">Ease Out</div>
+        <div class="ease-value">cubic-bezier(0.16, 1, 0.3, 1)</div>
+        <div class="ease-bar-track"><div class="ease-bar out"></div></div>
+      </div>
+      <div class="ease-block">
+        <div class="ease-label">Ease In-Out</div>
+        <div class="ease-value">cubic-bezier(0.65, 0, 0.35, 1)</div>
+        <div class="ease-bar-track"><div class="ease-bar in-out"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLUID RESPONSIVE ===== -->
+<section class="ds-section dark" id="responsive">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Responsive</div>
+      <h2 class="ds-section-title light">FLUID-FIRST STRATEGY</h2>
+      <p class="ds-section-desc light">clamp() handles sizing. Breakpoints handle layout. Resize your browser to see everything scale smoothly — no jarring jumps between breakpoints.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:48px;">
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:32px;">
+        <div style="font-family:var(--font-display); font-size:1.2rem; color:var(--red); letter-spacing:1px; margin-bottom:16px;">USE CLAMP() FOR</div>
+        <div style="font-size:0.88rem; color:rgba(255,255,255,0.5); line-height:2; font-weight:300;">
+          Font sizes (all levels)<br>
+          Section padding (vertical)<br>
+          Grid gaps<br>
+          Card internal padding<br>
+          Button padding<br>
+          Container side padding<br>
+          Decorative element sizing
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:32px;">
+        <div style="font-family:var(--font-display); font-size:1.2rem; color:var(--white); letter-spacing:1px; margin-bottom:16px;">USE @MEDIA FOR</div>
+        <div style="font-size:0.88rem; color:rgba(255,255,255,0.5); line-height:2; font-weight:300;">
+          Grid column count changes<br>
+          Nav &rarr; hamburger toggle<br>
+          Flex-direction switches<br>
+          Showing/hiding elements<br>
+          <span style="color:rgba(255,255,255,0.25);">That's it. Only 2 breakpoints: 1024px &amp; 768px</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:32px;">
+      <div class="type-specimen-label" style="color:rgba(255,255,255,0.3); margin-bottom:16px;">Live Fluid Scaling — resize browser to see</div>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:clamp(24px, 1.5rem + 2vw, 48px); margin-bottom:24px;">
+      <div style="display:inline-flex; align-items:center; gap:8px; font-size:clamp(0.65rem, 0.62rem + 0.06vw, 0.72rem); font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--red); margin-bottom:16px;">
+        <span style="width:20px; height:2px; background:var(--red); display:inline-block;"></span>
+        Fluid Typography Demo
+      </div>
+      <h2 style="font-family:var(--font-display); font-size:clamp(2.2rem, 1.5rem + 3.5vw, 3.8rem); color:var(--white); letter-spacing:1px; line-height:1; margin-bottom:clamp(12px, 0.75rem + 0.5vw, 24px);">THIS HEADING SCALES<br>SMOOTHLY WITH VIEWPORT</h2>
+      <p style="font-size:clamp(0.95rem, 0.9rem + 0.15vw, 1.05rem); color:rgba(255,255,255,0.6); font-weight:300; line-height:1.8; max-width:65ch; margin-bottom:clamp(20px, 1.25rem + 1vw, 32px);">This paragraph, the heading above, the padding around this box, and the gap below all use clamp(). No media queries involved — just smooth interpolation between mobile minimum and desktop maximum.</p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <button style="display:inline-flex; align-items:center; gap:10px; background:var(--red); color:white; padding:clamp(12px, 0.75rem + 0.25vw, 16px) clamp(24px, 1.5rem + 0.5vw, 36px); font-family:var(--font-body); font-size:clamp(0.78rem, 0.75rem + 0.08vw, 0.85rem); font-weight:600; letter-spacing:2px; text-transform:uppercase; border-radius:4px; border:none; cursor:pointer;">Fluid Button &rarr;</button>
+        <button style="display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,0.25); color:white; background:transparent; padding:clamp(12px, 0.75rem + 0.25vw, 16px) clamp(24px, 1.5rem + 0.5vw, 36px); font-family:var(--font-body); font-size:clamp(0.78rem, 0.75rem + 0.08vw, 0.85rem); font-weight:500; letter-spacing:2px; text-transform:uppercase; border-radius:4px; cursor:pointer;">Also Fluid</button>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:clamp(16px, 1rem + 0.5vw, 24px);">
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:clamp(24px, 1.5rem + 1vw, 40px); text-align:center;">
+        <div style="font-family:var(--font-display); font-size:clamp(1.25rem, 1rem + 0.5vw, 1.5rem); color:var(--white); letter-spacing:1px; margin-bottom:8px;">FLUID CARDS</div>
+        <div style="font-size:clamp(0.82rem, 0.78rem + 0.1vw, 0.9rem); color:rgba(255,255,255,0.45); line-height:1.7; font-weight:300;">Padding and font sizes scale. Grid collapses at breakpoint.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:clamp(24px, 1.5rem + 1vw, 40px); text-align:center;">
+        <div style="font-family:var(--font-display); font-size:clamp(1.25rem, 1rem + 0.5vw, 1.5rem); color:var(--white); letter-spacing:1px; margin-bottom:8px;">NO JUMP CUTS</div>
+        <div style="font-size:clamp(0.82rem, 0.78rem + 0.1vw, 0.9rem); color:rgba(255,255,255,0.45); line-height:1.7; font-weight:300;">No sudden shifts at 768px or 1024px — just smooth scaling.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:8px; padding:clamp(24px, 1.5rem + 1vw, 40px); text-align:center;">
+        <div style="font-family:var(--font-display); font-size:clamp(1.25rem, 1rem + 0.5vw, 1.5rem); color:var(--white); letter-spacing:1px; margin-bottom:8px;">2 BREAKPOINTS</div>
+        <div style="font-size:clamp(0.82rem, 0.78rem + 0.1vw, 0.9rem); color:rgba(255,255,255,0.45); line-height:1.7; font-weight:300;">1024px for grid collapse. 768px for nav &amp; final stack.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DO/DON'T ===== -->
+<section class="ds-section">
+  <div class="ds-container">
+    <div class="ds-section-header">
+      <div class="ds-section-tag">Rules</div>
+      <h2 class="ds-section-title">DO / DON'T</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div style="background:var(--white); border-radius:8px; padding:32px; border:2px solid rgba(0,180,80,0.2);">
+        <div style="font-family:var(--font-display); font-size:1.2rem; letter-spacing:1px; color:#0a8a3e; margin-bottom:16px;">DO</div>
+        <div style="font-size:0.88rem; color:#555; line-height:1.8; font-weight:300;">
+          Use Bebas Neue for headlines only<br>
+          Keep buttons at 4px radius<br>
+          Use red as the sole accent color<br>
+          Left-align hero content (split grid)<br>
+          Use cream background for light sections<br>
+          Custom cubic-bezier for all motion<br>
+          Animate only transform &amp; opacity<br>
+          Use section tags before every H2<br>
+          Uppercase all nav, buttons, labels<br>
+          Use clamp() for all sizing &amp; spacing<br>
+          Reference --text-* and --space-* tokens<br>
+          Use min-height: 100dvh (not 100vh)
+        </div>
+      </div>
+      <div style="background:var(--white); border-radius:8px; padding:32px; border:2px solid rgba(200,16,46,0.2);">
+        <div style="font-family:var(--font-display); font-size:1.2rem; letter-spacing:1px; color:var(--red); margin-bottom:16px;">DON'T</div>
+        <div style="font-size:0.88rem; color:#555; line-height:1.8; font-weight:300;">
+          Use Inter, Roboto, or Arial<br>
+          Make pill/rounded-full buttons<br>
+          Add purple, blue, or gradient accents<br>
+          Center hero text in a single column<br>
+          Use pure white (#FFF) as page background<br>
+          Use ease-in-out or linear transitions<br>
+          Animate width, height, top, or left<br>
+          Skip the red dash on section tags<br>
+          Use sentence case for navigation<br>
+          Use @media for font-size changes<br>
+          Use @media for padding/gap changes<br>
+          Hard-code px values for font/spacing
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--black); padding:40px; text-align:center;">
+  <p style="font-family:var(--font-display); font-size:1.2rem; color:rgba(255,255,255,0.3); letter-spacing:3px;">DAVID POLLACK DESIGN SYSTEM v1.1 — BETTERBUILT DIGITAL</p>
+</div>
+
+</body>
+</html>
