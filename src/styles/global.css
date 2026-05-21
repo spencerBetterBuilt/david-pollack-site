@@ -30,7 +30,7 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
   /* Only 2 breakpoints per design system */
-  --breakpoint-lg: 1024px;
+  --breakpoint-lg: 749px;
   --breakpoint-md: 768px;
 }
 
@@ -154,13 +154,6 @@ button {
   text-transform: uppercase;
   color: var(--red);
   margin-bottom: 16px;
-}
-.section-tag::before {
-  content: '';
-  width: 20px;
-  height: 2px;
-  background: var(--red);
-  flex-shrink: 0;
 }
 
 /* ===== BUTTONS ===== */

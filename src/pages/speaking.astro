@@ -47,6 +47,21 @@ const schema = {
     </div>
   </section>
 
+  <!-- SIZZLE REEL -->
+  <section class="sizzle-section">
+    <div class="container">
+      <div class="sizzle-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/5JpSTnuTgtc"
+          title="David Pollack speaking sizzle reel"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- CREDENTIALS -->
   <section class="credentials-section">
     <div class="container">
@@ -256,6 +271,20 @@ const schema = {
     max-width: 520px;
   }
 
+  .sizzle-section {
+    background: var(--black);
+    padding: 0 0 clamp(60px, 6vw, 80px);
+  }
+  .sizzle-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .sizzle-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
   .credentials-section {
     background: var(--red);
     padding: 20px 0;
@@ -362,7 +391,7 @@ const schema = {
   .topic-number {
     font-family: var(--font-display);
     font-size: 3rem;
-    color: rgba(200,16,46,0.15);
+    color: rgb(200,16,46);
     line-height: 1;
     margin-bottom: 16px;
   }
@@ -476,7 +505,7 @@ const schema = {
   }
   .form-success p { color: var(--mid-gray); font-size: 0.95rem; }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 749px) {
     .why-inner { grid-template-columns: 1fr; gap: 40px; }
     .topics-grid { grid-template-columns: 1fr 1fr; }
     .inquiry-grid { grid-template-columns: 1fr; gap: 60px; }
