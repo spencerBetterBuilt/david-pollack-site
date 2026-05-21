@@ -191,7 +191,7 @@ button {
   opacity: 0;
   transition: opacity 0.3s;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,16,46,0.4); }
+.btn-primary:hover { background: var(--red-glow); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,16,46,0.4); }
 .btn-primary:hover::before { opacity: 1; }
 
 .btn-outline {
@@ -211,7 +211,7 @@ button {
   cursor: pointer;
   transition: all 0.3s var(--ease-out);
 }
-.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,16,46,0.4); }
 
 .btn-dark {
   display: inline-flex;
@@ -230,7 +230,7 @@ button {
   cursor: pointer;
   transition: all 0.3s var(--ease-out);
 }
-.btn-dark:hover { background: var(--charcoal); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+.btn-dark:hover { background: var(--charcoal); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
 
 /* ===== FORMS ===== */
 .form-group label {
@@ -279,7 +279,7 @@ button {
   cursor: pointer;
   transition: all 0.3s var(--ease-out);
 }
-.form-submit:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(200,16,46,0.3); }
+.form-submit:hover { background: var(--red-glow); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,16,46,0.4); }
 
 /* Honeypot — hidden from humans, visible to bots */
 .form-hp {
